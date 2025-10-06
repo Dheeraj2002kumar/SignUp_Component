@@ -14,44 +14,43 @@ function SignUp(props) {
       return;
     }
 
-    if (!emailAddress.include("@")) {
+    if (!emailAddress.includes("@")) {
       alert("Please enter a valid email address!");
       return;
     }
 
-    // pass data parent component
+    // pass data to parent component
     props.handleSubmit({ fullName, phoneNumber, emailAddress });
   };
+
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <h2>Enter Full Name</h2>
-        <input
-          type="text"
-          id="fullName"
-          value={fullName}
-          onClick={(e) => setFullName(e.target.value)}
-        />
+    <form onSubmit={handleSubmit}>
+      <h2>Enter Full Name</h2>
+      <input
+        type="text"
+        id="fullName"
+        value={fullName}
+        onChange={(e) => setFullName(e.target.value)}
+      />
 
-        <h2>Enter Phone Number</h2>
-        <input
-          type="number"
-          id="phoneNumber"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-        />
+      <h2>Enter Phone Number</h2>
+      <input
+        type="tel"
+        id="phoneNumber"
+        value={phoneNumber}
+        onChange={(e) => setPhoneNumber(e.target.value)}
+      />
 
-        <h2>Email Id</h2>
-        <input
-          type="text"
-          id="emailAddress"
-          value={emailAddress}
-          onChange={(e) => setEmailAddress(e.target.value)}
-        />
+      <h2>Email Id</h2>
+      <input
+        type="text"
+        id="emailAddress"
+        value={emailAddress}
+        onChange={(e) => setEmailAddress(e.target.value)}
+      />
 
-        <button type="submit">Save Record</button>
-      </form>
-    </>
+      <button type="submit">Save Record</button>
+    </form>
   );
 }
 
